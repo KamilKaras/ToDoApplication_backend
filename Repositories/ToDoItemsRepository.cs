@@ -14,7 +14,7 @@ namespace ToDoAplication.Repositories
         {
             _dataContext = context;
         }
-        public async Task <List <ToDoItem>> GetAll()
+        public async Task <List <ToDoItem>> GetAll(int count)
         {
             var returnedList = await _dataContext.ToDoItems.ToListAsync();
             return returnedList;

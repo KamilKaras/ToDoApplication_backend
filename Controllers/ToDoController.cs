@@ -20,9 +20,9 @@ namespace ToDoAplication.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] int count)
         {
-            var toDoItems = await _toDoItemsRepository.GetAll();
+            var toDoItems = await _toDoItemsRepository.GetAll(count);
             return Ok(toDoItems);
         }
         [HttpGet("{id}")]
