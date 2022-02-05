@@ -36,7 +36,7 @@ namespace ToDoAplication.Controllers
                 var response = new RegistrationResponse {
                     Sucssess = false,
                     Errors = new List<string> { 
-                        "Invalid Payload"
+                        "Wrong user data or password"
                     }                    
                 };
                 return BadRequest(response);
@@ -110,7 +110,7 @@ namespace ToDoAplication.Controllers
                 {
                     Sucssess = false,
                     Errors = new List<string> {
-                        "Invalid login request"
+                        "User doesn't exist"
                     }
                 };
                 return BadRequest(response);

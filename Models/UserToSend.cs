@@ -10,5 +10,6 @@ namespace ToDoAplication.Tools
         public string Id { get; set; }
         public List<string> Tasks { get; set; }
         public string Created { get; set; }
+        public string Modified { get; set; }
     }
 }

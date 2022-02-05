@@ -12,7 +12,8 @@ namespace ToDoAplication.Tools
                UserName = user.UserName,
                Id = user.Id,
                Tasks = new List<string>(),
-               Created = user.Created
+               Created = user.Created,
+               Modified = user.Modified
         };
     }
 }
