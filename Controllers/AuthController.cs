@@ -19,9 +19,9 @@ namespace ToDoAplication.Controllers
       
     public class AuthController: ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AplicationUser> _userManager;
         private readonly JwtConfig _jwtConfig;
-        public AuthController(UserManager<IdentityUser> userManager, IOptionsMonitor<JwtConfig> jwtConfig)
+        public AuthController(UserManager<AplicationUser> userManager, IOptionsMonitor<JwtConfig> jwtConfig)
         {
             _userManager = userManager;
             _jwtConfig = jwtConfig.CurrentValue;
@@ -56,7 +56,7 @@ namespace ToDoAplication.Controllers
                 return BadRequest(response);
             }
 
-            var newUser = new IdentityUser
+            var newUser = new AplicationUser
             {
                 Email = userRegistrationRequestDto.Email,
                 UserName = userRegistrationRequestDto.Login,
@@ -138,7 +138,7 @@ namespace ToDoAplication.Controllers
             });
         }
 
-        private string GenerateJwtToken(IdentityUser user)
+        private string GenerateJwtToken(AplicationUser user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_jwtConfig.Secret);

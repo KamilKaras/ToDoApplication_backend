@@ -5,7 +5,7 @@ namespace ToDoAplication.Models
 {
     public class AplicationUser : IdentityUser
     {
-        public DateTime CreatedTime { get; set; }
-        public DateTime ModifiedTime { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
     }
 }
