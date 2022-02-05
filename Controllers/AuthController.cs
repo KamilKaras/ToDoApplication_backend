@@ -26,6 +26,7 @@ namespace ToDoAplication.Controllers
             _userManager = userManager;
             _jwtConfig = jwtConfig.CurrentValue;
         }
+
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] UserRegistrationRequestDto userRegistrationRequestDto)
