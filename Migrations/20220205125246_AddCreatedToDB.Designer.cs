@@ -10,8 +10,8 @@ using ToDoAplication;
 namespace ToDoAplication.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220205113522_NewUserProps")]
-    partial class NewUserProps
+    [Migration("20220205125246_AddCreatedToDB")]
+    partial class AddCreatedToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -168,8 +168,8 @@ namespace ToDoAplication.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Created")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -184,8 +184,8 @@ namespace ToDoAplication.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Modified")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)

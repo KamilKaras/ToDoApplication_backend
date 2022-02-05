@@ -5,7 +5,9 @@ namespace ToDoAplication.Models
 {
     public class AplicationUser : IdentityUser
     {
-        public DateTime Created { get; set; }
-        public DateTime Modified { get; set; }
+        public string Created { get; set; } = DateTime.Now.ToShortDateString();
+        public string Modified { get; set; }
+
     }
 }
+

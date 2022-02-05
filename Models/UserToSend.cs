@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ToDoAplication.Tools
 {
@@ -8,5 +9,6 @@ namespace ToDoAplication.Tools
         public string UserName { get; set; }
         public string Id { get; set; }
         public List<string> Tasks { get; set; }
+        public string Created { get; set; }
     }
 }
