@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ToDoAplication.Interfaces.Repositories;
 using Microsoft.AspNetCore.JsonPatch;
+using System.Linq;
 
 namespace ToDoAplication.Repositories
 {
@@ -14,9 +15,9 @@ namespace ToDoAplication.Repositories
         {
             _dataContext = context;
         }
-        public async Task <List <ToDoItem>> GetAll(int count)
+        public async Task <List <ToDoItem>> GetAll(int page, int count)
         {
-            var returnedList = await _dataContext.ToDoItems.ToListAsync();
+            var returnedList = await _dataContext.ToDoItems.Skip((page - 1) * count).Take(count).ToListAsync();
             return returnedList;
         }
 

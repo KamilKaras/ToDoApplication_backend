@@ -12,9 +12,9 @@ namespace ToDoAplication.Services
             _toDoItemsRepository = toDoItemsRepository;
         }
 
-        public async Task<List<ToDoItem>> GetAll(int count)
+        public async Task<List<ToDoItem>> GetAll(int page, int count)
         {
-            return await _toDoItemsRepository.GetAll(count);
+            return await _toDoItemsRepository.GetAll(page, count);
         }
     }
 }

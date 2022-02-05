@@ -5,6 +5,6 @@ namespace ToDoAplication
 {
     public interface IToDoItemsService
     {
-        Task<List<ToDoItem>> GetAll(int count);
+        Task<List<ToDoItem>> GetAll(int page, int count);
     }
 }

@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using ToDoAplication.Models;
+using ToDoAplication.Tools;
 
 namespace ToDoAplication.Controllers
 {
@@ -21,22 +20,13 @@ namespace ToDoAplication.Controllers
 
         [HttpGet]
         [Route("GetAllUsers")]
-        public IActionResult UsersList()
+        public async Task<IActionResult> UsersList(int page, int count)
         {
-            
-            var usersList = _userManager.Users.ToList();
-            var usersToSend = usersList.Select(user => PrepareToSend(user)).ToList();
+
+            var usersList = await _userManager.Users.Skip((page - 1) * count).Take(count).ToListAsync();
+            var usersToSend = usersList.Select(user => Mapper.PrepareToSend(user)).ToList();
 
             return Ok(usersToSend);
-        }
-        private UserToSend PrepareToSend(IdentityUser user)
-        {
-            var newUser = new UserToSend();
-            newUser.Email = user.Email;
-            newUser.UserName = user.UserName;
-            newUser.Id = user.Id;
-            newUser.Tasks = new List<string>();
-            return newUser;
         }
     }
 }
