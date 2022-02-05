@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using ToDoAplication.Models;
 using ToDoAplication.Tools;
 
 namespace ToDoAplication.Controllers
@@ -11,9 +12,9 @@ namespace ToDoAplication.Controllers
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AplicationUser> _userManager;
        
-        public UsersController(UserManager<IdentityUser> userManager)
+        public UsersController(UserManager<AplicationUser> userManager)
         {
             _userManager = userManager;
         }
