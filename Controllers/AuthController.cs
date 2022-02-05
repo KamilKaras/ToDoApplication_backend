@@ -19,7 +19,7 @@ namespace ToDoAplication.Controllers
       
     public class AuthController: ControllerBase
     {
-        public readonly UserManager<AplicationUser> _userManager;
+        private readonly UserManager<AplicationUser> _userManager;
         private readonly JwtConfig _jwtConfig;
         public AuthController(UserManager<AplicationUser> userManager, IOptionsMonitor<JwtConfig> jwtConfig)
         {

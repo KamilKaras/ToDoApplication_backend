@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using ToDoAplication.Configuration;
 using ToDoAplication.Interfaces.Repositories;
+using ToDoAplication.Models;
 using ToDoAplication.Repositories;
 using ToDoAplication.Services;
 
@@ -71,7 +72,7 @@ namespace ToDoAplication
                     ValidateLifetime = true
                 };
             });
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<AplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                   .AddEntityFrameworkStores<DataContext>();
         }
 
