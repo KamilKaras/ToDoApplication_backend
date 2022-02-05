@@ -28,5 +28,17 @@ namespace ToDoAplication.Controllers
 
             return Ok(usersToSend);
         }
+        [HttpDelete("{id}")]
+        public  async Task<IActionResult> DeleteUser(string id)
+        {
+            var userToDelete =  _userManager.Users.FirstOrDefault(i => i.Id == id);
+            if(userToDelete is null)
+            {
+                return NotFound();
+            }
+            await _userManager.DeleteAsync(userToDelete);
+            return Ok(userToDelete);
+
+        }
     }
 }
