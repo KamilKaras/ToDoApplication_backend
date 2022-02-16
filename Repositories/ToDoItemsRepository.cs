@@ -66,6 +66,7 @@ namespace ToDoAplication.Repositories
             var itemFromDb = await _dataContext.ToDoItems.FirstOrDefaultAsync(i => i.Id == id);
             itemFromDb.Title = toDoItem.Title;
             itemFromDb.Description = toDoItem.Description;
+            itemFromDb.IsComplited = toDoItem.IsComplited;
             await _dataContext.SaveChangesAsync();
             return itemFromDb;
         }
