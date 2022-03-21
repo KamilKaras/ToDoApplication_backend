@@ -18,9 +18,9 @@ namespace ToDoAplication.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] int page, [FromQuery] int count)
+        public async Task<IActionResult> GetAll([FromQuery] int page, [FromQuery] int count, [FromQuery] string userId)
         {
-            var toDoItems = await _toDoItemsRepository.GetAll(page, count);
+            var toDoItems = await _toDoItemsRepository.GetAll(page, count, userId);
             return Ok(toDoItems);
         }
         [HttpGet("{id}")]

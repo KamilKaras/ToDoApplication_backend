@@ -12,5 +12,6 @@ namespace ToDoAplication
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
         public bool IsComplited { get; set; }
+        public string UserId { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace ToDoAplication.Interfaces.Repositories
 {
     public interface IToDoItemsRepository
     {
-        Task<List<ToDoItem>> GetAll(int page, int count);
+        Task<List<ToDoItem>> GetAll(int page, int count, string userId);
         Task<ToDoItem> GetItem(int id);
         Task<ToDoItem> CreateItem(ToDoItem item);
         Task<ToDoItem> DeleteItem(int id);
