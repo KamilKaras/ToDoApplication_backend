@@ -15,9 +15,9 @@ namespace ToDoAplication.Repositories
         {
             _dataContext = context;
         }
-        public async Task <List <ToDoItem>> GetAll(int page, int count)
+        public async Task <List <ToDoItem>> GetAll(int page, int count, string userId)
         {
-            var returnedList = await _dataContext.ToDoItems.Skip((page - 1) * count).Take(count).ToListAsync();
+            var returnedList = await _dataContext.ToDoItems.Where(item => item.UserId == userId).Skip((page - 1) * count).Take(count).ToListAsync();
             return returnedList;
         }
 
